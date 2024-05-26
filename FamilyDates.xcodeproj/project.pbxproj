@@ -14,6 +14,8 @@
 		554F07502BFB8C4300E2152E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F074F2BFB8C4300E2152E /* ContentView.swift */; };
 		554F07522BFB8C4500E2152E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 554F07512BFB8C4500E2152E /* Assets.xcassets */; };
 		554F07552BFB8C4500E2152E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 554F07542BFB8C4500E2152E /* Preview Assets.xcassets */; };
+		5553C6E72C01BAE4005CDDF2 /* ShowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5553C6E62C01BAE4005CDDF2 /* ShowView.swift */; };
+		5553C6E92C0215DF005CDDF2 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5553C6E82C0215DF005CDDF2 /* NavigationBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		554F074F2BFB8C4300E2152E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		554F07512BFB8C4500E2152E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		554F07542BFB8C4500E2152E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5553C6E62C01BAE4005CDDF2 /* ShowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowView.swift; sourceTree = "<group>"; };
+		5553C6E82C0215DF005CDDF2 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +65,8 @@
 				55339B902BFE2AC1006BC94C /* ListRow.swift */,
 				55339B8E2BFE1E7D006BC94C /* Person.swift */,
 				554F074F2BFB8C4300E2152E /* ContentView.swift */,
+				5553C6E82C0215DF005CDDF2 /* NavigationBar.swift */,
+				5553C6E62C01BAE4005CDDF2 /* ShowView.swift */,
 				55339B8C2BFE1DE1006BC94C /* People.swift */,
 				554F07512BFB8C4500E2152E /* Assets.xcassets */,
 				554F07532BFB8C4500E2152E /* Preview Content */,
@@ -150,7 +156,9 @@
 				55339B8D2BFE1DE1006BC94C /* People.swift in Sources */,
 				55339B8F2BFE1E7D006BC94C /* Person.swift in Sources */,
 				554F074E2BFB8C4300E2152E /* FamilyDatesApp.swift in Sources */,
+				5553C6E92C0215DF005CDDF2 /* NavigationBar.swift in Sources */,
 				55339B912BFE2AC1006BC94C /* ListRow.swift in Sources */,
+				5553C6E72C01BAE4005CDDF2 /* ShowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

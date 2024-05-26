@@ -11,15 +11,7 @@ struct ContentView: View {
     @ObservedObject var Family = People()
     var body: some View {
         VStack {
-            // Navigation bar
-            HStack {
-                Image(systemName: "line.horizontal.3")
-                Spacer()
-                Text("Family Dates").font(.headline)
-                Spacer()
-                Image(systemName: "house")
-                Image(systemName: "ellipsis")
-            }.padding().background(Color(UIColor.systemGray6))
+            NavigationBar()
             // Table view
             List {
                 HStack {
@@ -33,7 +25,7 @@ struct ContentView: View {
                     ListRow(name: person.name, age: person.age, event: person.event)
                 }
             }
-        }
+        }.background(Color(UIColor.systemGray6))
     }
 }
 
