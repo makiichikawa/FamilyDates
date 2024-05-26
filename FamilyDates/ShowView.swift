@@ -14,7 +14,7 @@ struct ShowView: View {
             VStack {
                 NavigationBar()
                 ScrollView {
-                    CardView()
+                    CardView(human: human)
                     Spacer()
                 }
             }.background(Color(UIColor.systemGray6))
@@ -23,6 +23,7 @@ struct ShowView: View {
 }
 
 struct CardView: View {
+    var human: Person
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             HStack {
@@ -35,26 +36,28 @@ struct CardView: View {
             }
             .padding(.top)
             
-            Text("自分")
+            Text(human.name)
                 .font(.title)
                 .fontWeight(.bold)
             
             VStack(alignment: .leading, spacing: 5) {
                 Text("年齢")
                     .font(.headline)
-                Text("・36歳と6ヶ月")
+                Text(String(human.age) + "歳")
                     .padding(.leading, 8)
                 
                 Text("誕生日")
                     .font(.headline)
-                Text("・1987/10/29 (S62.10.20)")
+                Text("1987/10/29 (S62.10.20)")
                     .padding(.leading, 8)
                 
-                Text("・もうすぐで還暦を迎えます")
-                
+                Text("もうすぐ")
+                    .font(.headline)
+                Text(human.event)
+                    .padding(.leading, 8)
                 Text("祝いメモ")
                     .font(.headline)
-                Text("・小学校入学：5千円")
+                Text("小学校入学：5千円")
                     .padding(.leading, 8)
             }
             
