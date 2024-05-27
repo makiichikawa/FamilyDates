@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		551BA0C22C03618100C643BC /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551BA0C12C03618100C643BC /* EditView.swift */; };
 		55339B8D2BFE1DE1006BC94C /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55339B8C2BFE1DE1006BC94C /* People.swift */; };
 		55339B8F2BFE1E7D006BC94C /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55339B8E2BFE1E7D006BC94C /* Person.swift */; };
 		55339B912BFE2AC1006BC94C /* ListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55339B902BFE2AC1006BC94C /* ListRow.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		551BA0C12C03618100C643BC /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		55339B8C2BFE1DE1006BC94C /* People.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
 		55339B8E2BFE1E7D006BC94C /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		55339B902BFE2AC1006BC94C /* ListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRow.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 				554F074D2BFB8C4300E2152E /* FamilyDatesApp.swift */,
 				55339B902BFE2AC1006BC94C /* ListRow.swift */,
 				55339B8E2BFE1E7D006BC94C /* Person.swift */,
+				551BA0C12C03618100C643BC /* EditView.swift */,
 				554F074F2BFB8C4300E2152E /* ContentView.swift */,
 				5553C6E82C0215DF005CDDF2 /* NavigationBar.swift */,
 				5553C6E62C01BAE4005CDDF2 /* ShowView.swift */,
@@ -154,6 +157,7 @@
 			files = (
 				554F07502BFB8C4300E2152E /* ContentView.swift in Sources */,
 				55339B8D2BFE1DE1006BC94C /* People.swift in Sources */,
+				551BA0C22C03618100C643BC /* EditView.swift in Sources */,
 				55339B8F2BFE1E7D006BC94C /* Person.swift in Sources */,
 				554F074E2BFB8C4300E2152E /* FamilyDatesApp.swift in Sources */,
 				5553C6E92C0215DF005CDDF2 /* NavigationBar.swift in Sources */,
