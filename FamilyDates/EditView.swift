@@ -11,6 +11,7 @@ struct EditView: View {
     @State private var name: String = ""
     @State private var selectedDate = Date()
     @State private var showingDatePicker = false
+    @State private var event: String = ""
     
 
     var body: some View {
@@ -25,7 +26,6 @@ struct EditView: View {
                         .padding()
                         .background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color.gray, lineWidth: 1))
                         .padding(.horizontal)
-
                     Text("誕生日")
                         .font(.headline)
                         .padding(.leading)
@@ -50,8 +50,15 @@ struct EditView: View {
                         .labelsHidden()
                         .padding()
                     }
+                    Text("event")
+                        .font(.headline)
+                        .padding(.leading)
+                    TextField("できごと", text: $event)
+                        .padding()
+                        .background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color.gray, lineWidth: 1))
+                        .padding(.horizontal)
                 }.padding()
-                
+
                 Spacer()
                 
                 HStack {

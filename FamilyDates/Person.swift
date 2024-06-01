@@ -10,12 +10,12 @@ import SwiftUI
 struct Person: Identifiable, Equatable {
     let id = UUID()
     var name: String
-    var age: Int
+    var birthDay: Date
     var event: String
 
-    init(name: String, age: Int, event: String) {
+    init(name: String, birthDay: Date, event: String) {
         self.name = name
-        self.age = age
+        self.birthDay = birthDay
         self.event = event
     }
 }

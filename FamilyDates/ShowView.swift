@@ -41,16 +41,10 @@ struct CardView: View {
                 .fontWeight(.bold)
             
             VStack(alignment: .leading, spacing: 5) {
-                Text("年齢")
-                    .font(.headline)
-                Text(String(human.age) + "歳")
-                    .padding(.leading, 8)
-                
                 Text("誕生日")
                     .font(.headline)
-                Text("1987/10/29 (S62.10.20)")
+                Text(dateFormatter.string(from: human.birthDay))
                     .padding(.leading, 8)
-                
                 Text("もうすぐ")
                     .font(.headline)
                 Text(human.event)
@@ -93,8 +87,13 @@ struct CardView: View {
         .padding()
         .padding()
     }
+    private var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        return formatter
+    }
 }
 
 #Preview {
-    ShowView(human: Person(name: "ichikawa", age: 37, event: "還暦"))
+    ShowView(human: Person(name: "ichikawa", birthDay: Date(), event: "還暦"))
 }
