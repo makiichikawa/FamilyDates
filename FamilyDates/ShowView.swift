@@ -78,7 +78,7 @@ struct CardView: View {
                         .foregroundColor(.white)
                         .cornerRadius(8)
                 }.sheet(isPresented: $isShowEditView){
-                    EditView(human: $human)
+                    EditView(human: $human, isShowingEditView: $isShowEditView)
                 }
             }
             .padding(.top)

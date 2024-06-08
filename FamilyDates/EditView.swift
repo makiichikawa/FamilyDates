@@ -9,10 +9,8 @@ import SwiftUI
 
 struct EditView: View {
     @Binding var human: Person
-//    @State private var name: String
-//    @State private var selectedDate = Date()
+    @Binding var isShowingEditView: Bool
     @State private var showingDatePicker = false
-//    @State private var event: String = ""
 
     var body: some View {
         VStack {
@@ -62,14 +60,14 @@ struct EditView: View {
 
             HStack {
                 Button("CANCEL") {
-                    // Handle cancel action
+                    isShowingEditView = false
                 }
                 .padding()
 
                 Spacer()
 
                 Button("OK") {
-                    // Handle OK action
+                    isShowingEditView = false
                 }
                 .padding()
             }
@@ -85,5 +83,6 @@ struct EditView: View {
 
 #Preview {
     @State var human = Person(name: "ichikawa", birthDay: Date(), event: "還暦")
-    return EditView(human: $human)
+    @State var isShowingEditView = true
+    return EditView(human: $human, isShowingEditView: $isShowingEditView)
 }
