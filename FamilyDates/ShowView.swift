@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ShowView: View {
-    let human: Person
+    var human: Person
     var body: some View {
         NavigationView {
             VStack {
@@ -23,7 +23,8 @@ struct ShowView: View {
 }
 
 struct CardView: View {
-    var human: Person
+    @State var human: Person
+    @State var isShowEditView = false
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             HStack {
@@ -68,7 +69,7 @@ struct CardView: View {
                 }
                 
                 Button(action: {
-                    // Edit action
+                    isShowEditView = true
                 }) {
                     Text("編集")
                         .frame(maxWidth: .infinity)
@@ -76,6 +77,8 @@ struct CardView: View {
                         .background(Color.black)
                         .foregroundColor(.white)
                         .cornerRadius(8)
+                }.sheet(isPresented: $isShowEditView){
+                    EditView(human: $human)
                 }
             }
             .padding(.top)

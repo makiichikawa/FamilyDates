@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct Person: Identifiable, Equatable {
+
     let id = UUID()
     var name: String
     var birthDay: Date
