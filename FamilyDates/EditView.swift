@@ -6,9 +6,15 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct EditView: View {
-    @Binding var human: Person
+    @Environment(\.modelContext) private var context
+    var person: Person
+    var insert: Bool
+    @Binding var name: String
+    @Binding var birthDay: Date
+    @Binding var event: String
     @Binding var isShowingEditView: Bool
     @State private var showingDatePicker = false
 
@@ -19,7 +25,11 @@ struct EditView: View {
                 Text("名前")
                     .font(.headline)
                     .padding(.leading)
-                TextField("名前", text: $human.name)
+                TextField("名前", text:
+                        .init(
+                            get: { person.name },
+                            set: { person.name = $0 }
+                        ))
                     .padding()
                     .background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color.gray, lineWidth: 1))
                     .padding(.horizontal)
@@ -28,9 +38,9 @@ struct EditView: View {
                     .padding(.leading)
                 
                 TextField("SELECT DATE", text: Binding(
-                    get: { dateFormatter.string(from: human.birthDay) },
+                    get: { dateFormatter.string(from: birthDay) },
                     set: { newValue in
-                        if let date = dateFormatter.date(from: newValue) { human.birthDay = date }
+                        if let date = dateFormatter.date(from: newValue) { birthDay = date }
                     }
                 )).onTapGesture {
                     showingDatePicker.toggle()
@@ -40,7 +50,7 @@ struct EditView: View {
                 .padding(.horizontal)
                 if showingDatePicker {
                     DatePicker("SELECT DATE",
-                               selection: $human.birthDay,
+                               selection: $birthDay,
                                displayedComponents: [.date]
                     )
                     .datePickerStyle(WheelDatePickerStyle())
@@ -50,7 +60,10 @@ struct EditView: View {
                 Text("event")
                     .font(.headline)
                     .padding(.leading)
-                TextField("できごと", text: $human.event)
+                TextField("できごと", text:
+                        .init(
+                            get: { person.event },
+                            set: { person.event = $0 }))
                     .padding()
                     .background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color.gray, lineWidth: 1))
                     .padding(.horizontal)
@@ -67,7 +80,15 @@ struct EditView: View {
                 Spacer()
 
                 Button("OK") {
-                    isShowingEditView = false
+                    if (insert) {
+                        context.insert(person)
+                    } else {
+                        isShowingEditView = false
+                        name = person.name
+                        birthDay = person.birthDay
+                        event = person.event
+                        try? context.save()
+                    }
                 }
                 .padding()
             }
@@ -82,7 +103,10 @@ struct EditView: View {
 }
 
 #Preview {
-    @State var human = Person(name: "ichikawa", birthDay: Date(), event: "還暦")
+    var person = Person(name: "ichikawa", birthDay: Date(), event: "還暦")
     @State var isShowingEditView = true
-    return EditView(human: $human, isShowingEditView: $isShowingEditView)
+    @State var name = "ichikawa"
+    @State var birthDay = Date()
+    @State var event = "還暦"
+    return EditView(person: person, insert: true, name: $name, birthDay: $birthDay, event: $event, isShowingEditView: $isShowingEditView)
 }

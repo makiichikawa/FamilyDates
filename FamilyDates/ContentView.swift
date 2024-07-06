@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
-    @ObservedObject var Family = People()
+    @Environment(\.modelContext) private var context
+    @Query private var people: [Person]
+    @State var isShowEditView = false
     var body: some View {
         NavigationView {
             VStack {
@@ -18,14 +21,25 @@ struct ContentView: View {
                     HStack {
                         Text("名前").frame(width: 100, alignment: .leading)
                         Spacer()
-                        Text("年齢").frame(width: 50, alignment: .center)
+                        Text("年齢").frame(width: 50, alignment: .leading)
                         Spacer()
                         Text("記念日").frame(width: 100, alignment: .leading)
                     }.font(.headline)
-                    ForEach(Family.people) { person in
-                        NavigationLink(destination: ShowView(human: person)){
+                    ForEach(people) { person in
+                        NavigationLink(destination: ShowView(person: person)){
                             ListRow(name: person.name, birthDay: person.birthDay, event: person.event)
                         }
+                    }
+                    Button(action: {
+                        isShowEditView = true
+                    }){
+                        Text("+").font(.title)
+                    }.sheet(isPresented: $isShowEditView){
+                        @State var name = ""
+                        @State var birthDay = Date()
+                        @State var event = ""
+                        let person = Person(name: name, birthDay: birthDay, event: event)
+                        EditView(person: person, insert: true, name: $name, birthDay: $birthDay, event: $event, isShowingEditView: $isShowEditView)
                     }
                 }
             }.background(Color(UIColor.systemGray6))

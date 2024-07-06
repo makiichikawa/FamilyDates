@@ -6,15 +6,16 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ShowView: View {
-    var human: Person
+    var person: Person
     var body: some View {
         NavigationView {
             VStack {
                 NavigationBar()
                 ScrollView {
-                    CardView(human: human)
+                    CardView(person: person)
                     Spacer()
                 }
             }.background(Color(UIColor.systemGray6))
@@ -23,7 +24,7 @@ struct ShowView: View {
 }
 
 struct CardView: View {
-    @State var human: Person
+    @Bindable var person: Person
     @State var isShowEditView = false
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -37,18 +38,18 @@ struct CardView: View {
             }
             .padding(.top)
             
-            Text(human.name)
+            Text(person.name)
                 .font(.title)
                 .fontWeight(.bold)
             
             VStack(alignment: .leading, spacing: 5) {
                 Text("誕生日")
                     .font(.headline)
-                Text(dateFormatter.string(from: human.birthDay))
+                Text(dateFormatter.string(from: person.birthDay))
                     .padding(.leading, 8)
                 Text("もうすぐ")
                     .font(.headline)
-                Text(human.event)
+                Text(person.event)
                     .padding(.leading, 8)
                 Text("祝いメモ")
                     .font(.headline)
@@ -78,7 +79,7 @@ struct CardView: View {
                         .foregroundColor(.white)
                         .cornerRadius(8)
                 }.sheet(isPresented: $isShowEditView){
-                    EditView(human: $human, isShowingEditView: $isShowEditView)
+                    EditView(person: person, insert: false, name: $person.name, birthDay: $person.birthDay, event: $person.event, isShowingEditView: $isShowEditView)
                 }
             }
             .padding(.top)
@@ -98,5 +99,5 @@ struct CardView: View {
 }
 
 #Preview {
-    ShowView(human: Person(name: "ichikawa", birthDay: Date(), event: "還暦"))
+    ShowView(person: Person(name: "ichikawa", birthDay: Date(), event: "還暦"))
 }

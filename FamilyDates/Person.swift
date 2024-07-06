@@ -5,9 +5,11 @@
 //  Created by 市川真希 on 2024/05/22.
 //
 
-import SwiftUI
+import Foundation
+import SwiftData
 
-struct Person: Identifiable, Equatable {
+@Model
+final class Person {
 
     let id = UUID()
     var name: String
