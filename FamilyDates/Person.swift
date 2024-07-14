@@ -21,4 +21,12 @@ final class Person {
         self.birthDay = birthDay
         self.event = event
     }
+
+    func computeAge() -> Int {
+        let calendar = Calendar.current
+        let birthday = calendar.dateComponents(in: TimeZone.current, from: self.birthDay)
+        let now = calendar.dateComponents([.year, .month, .day], from: Date())
+        let ageComponents = calendar.dateComponents([.year], from: birthday, to: now)
+        return ageComponents.year!
+    }
 }

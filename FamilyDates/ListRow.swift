@@ -9,13 +9,13 @@ import SwiftUI
 
 struct ListRow: View {
     let name: String
-    let birthDay: Date
+    let age: Int
     let event: String
     var body: some View {
         HStack {
             Text(name).frame(width: 100, alignment: .leading)
             Spacer()
-            Text(dateFormatter.string(from:birthDay)).frame(width: 50, alignment: .center)
+            Text(age.description).frame(width: 50, alignment: .center)
             Spacer()
             Text(event).frame(width: 100, alignment: .leading)
         }
@@ -28,5 +28,5 @@ struct ListRow: View {
 }
 
 #Preview {
-    ListRow(name: "自分", birthDay: Date(), event: "入学")
+    ListRow(name: "自分", age: 36, event: "入学")
 }

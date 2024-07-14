@@ -27,7 +27,7 @@ struct ContentView: View {
                     }.font(.headline)
                     ForEach(people) { person in
                         NavigationLink(destination: ShowView(person: person)){
-                            ListRow(name: person.name, birthDay: person.birthDay, event: person.event)
+                            ListRow(name: person.name, age: person.computeAge(), event: person.event)
                         }
                     }
                     Button(action: {
