@@ -47,13 +47,13 @@ struct CardView: View {
                     .font(.headline)
                 Text(dateFormatter.string(from: person.birthDay))
                     .padding(.leading, 8)
-                Text("もうすぐ")
-                    .font(.headline)
-                Text(person.event)
-                    .padding(.leading, 8)
-                Text("祝いメモ")
+                Text("次の予定")
                     .font(.headline)
                 Text("小学校入学：5千円")
+                    .padding(.leading, 8)
+                Text("メモ")
+                    .font(.headline)
+                Text(person.memo)
                     .padding(.leading, 8)
             }
             
@@ -79,7 +79,7 @@ struct CardView: View {
                         .foregroundColor(.white)
                         .cornerRadius(8)
                 }.sheet(isPresented: $isShowEditView){
-                    EditView(person: person, insert: false, name: $person.name, birthDay: $person.birthDay, event: $person.event, isShowingEditView: $isShowEditView)
+                    EditView(person: person, insert: false, isShowingEditView: $isShowEditView)
                 }
             }
             .padding(.top)
@@ -99,5 +99,5 @@ struct CardView: View {
 }
 
 #Preview {
-    ShowView(person: Person(name: "ichikawa", birthDay: Date(), event: "還暦"))
+    ShowView(person: Person(name: "ichikawa", birthDay: Date(), memo: "還暦"))
 }

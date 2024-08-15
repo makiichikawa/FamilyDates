@@ -10,15 +10,13 @@ import SwiftData
 
 struct EditView: View {
     @Environment(\.modelContext) private var context
-    var person: Person
+    @Bindable var person: Person
     var insert: Bool
-    @Binding var name: String
-    @Binding var birthDay: Date
-    @Binding var event: String
     @Binding var isShowingEditView: Bool
     @State private var showingDatePicker = false
 
     var body: some View {
+        @State var birthDayString:String? = dateFormatter.string(from: Date())
         VStack {
             NavigationBar()
             VStack(alignment: .leading) {
@@ -38,9 +36,9 @@ struct EditView: View {
                     .padding(.leading)
                 
                 TextField("SELECT DATE", text: Binding(
-                    get: { dateFormatter.string(from: birthDay) },
+                    get: { dateFormatter.string(from: person.birthDay) },
                     set: { newValue in
-                        if let date = dateFormatter.date(from: newValue) { birthDay = date }
+                        if let date = dateFormatter.date(from: newValue) { person.birthDay = date }
                     }
                 )).onTapGesture {
                     showingDatePicker.toggle()
@@ -50,20 +48,20 @@ struct EditView: View {
                 .padding(.horizontal)
                 if showingDatePicker {
                     DatePicker("SELECT DATE",
-                               selection: $birthDay,
+                               selection: $person.birthDay,
                                displayedComponents: [.date]
                     )
                     .datePickerStyle(WheelDatePickerStyle())
                     .labelsHidden()
                     .padding()
                 }
-                Text("event")
+                Text("memo")
                     .font(.headline)
                     .padding(.leading)
-                TextField("できごと", text:
+                TextField("メモ", text:
                         .init(
-                            get: { person.event },
-                            set: { person.event = $0 }))
+                            get: { person.memo },
+                            set: { person.memo = $0 }))
                     .padding()
                     .background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color.gray, lineWidth: 1))
                     .padding(.horizontal)
@@ -84,9 +82,6 @@ struct EditView: View {
                         context.insert(person)
                     } else {
                         isShowingEditView = false
-                        name = person.name
-                        birthDay = person.birthDay
-                        event = person.event
                         try? context.save()
                     }
                 }
@@ -103,10 +98,10 @@ struct EditView: View {
 }
 
 #Preview {
-    var person = Person(name: "ichikawa", birthDay: Date(), event: "還暦")
+    let person = Person(name: "ichikawa", birthDay: Date(), memo: "還暦")
     @State var isShowingEditView = true
     @State var name = "ichikawa"
     @State var birthDay = Date()
-    @State var event = "還暦"
-    return EditView(person: person, insert: true, name: $name, birthDay: $birthDay, event: $event, isShowingEditView: $isShowingEditView)
+    @State var memo = "還暦"
+    return EditView(person: person, insert: true, isShowingEditView: $isShowingEditView)
 }

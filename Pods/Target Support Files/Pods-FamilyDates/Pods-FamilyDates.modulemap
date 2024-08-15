@@ -1,0 +1,6 @@
+framework module Pods_FamilyDates {
+  umbrella header "Pods-FamilyDates-umbrella.h"
+
+  export *
+  module * { export * }
+}

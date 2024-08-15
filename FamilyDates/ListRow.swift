@@ -10,14 +10,14 @@ import SwiftUI
 struct ListRow: View {
     let name: String
     let age: Int
-    let event: String
+    let memo: String
     var body: some View {
         HStack {
             Text(name).frame(width: 100, alignment: .leading)
             Spacer()
             Text(age.description).frame(width: 50, alignment: .center)
             Spacer()
-            Text(event).frame(width: 100, alignment: .leading)
+            Text(memo).frame(width: 100, alignment: .leading)
         }
     }
     private var dateFormatter: DateFormatter {
@@ -28,5 +28,5 @@ struct ListRow: View {
 }
 
 #Preview {
-    ListRow(name: "自分", age: 36, event: "入学")
+    ListRow(name: "自分", age: 36, memo: "入学")
 }

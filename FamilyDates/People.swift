@@ -9,8 +9,8 @@ import SwiftUI
 
 class People: ObservableObject {
     @Published var people = [
-        Person(name: "自分", birthDay: Date() , event: "入学"),
-        Person(name: "ten", birthDay: Date(), event: "還暦"),
-        Person(name: "tino", birthDay: Date(), event: "誕生")
+        Person(name: "自分", birthDay: Date() , memo: "入学"),
+        Person(name: "ten", birthDay: Date(), memo: "還暦"),
+        Person(name: "tino", birthDay: Date(), memo: "誕生")
     ]
 }

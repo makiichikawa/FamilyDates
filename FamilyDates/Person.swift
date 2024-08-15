@@ -14,12 +14,12 @@ final class Person {
     let id = UUID()
     var name: String
     var birthDay: Date
-    var event: String
+    var memo: String
 
-    init(name: String, birthDay: Date, event: String) {
+    init(name: String, birthDay: Date, memo: String) {
         self.name = name
         self.birthDay = birthDay
-        self.event = event
+        self.memo = memo
     }
 
     func computeAge() -> Int {

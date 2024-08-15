@@ -27,7 +27,7 @@ struct ContentView: View {
                     }.font(.headline)
                     ForEach(people) { person in
                         NavigationLink(destination: ShowView(person: person)){
-                            ListRow(name: person.name, age: person.computeAge(), event: person.event)
+                            ListRow(name: person.name, age: person.computeAge(), memo: person.memo)
                         }
                     }
                     Button(action: {
@@ -36,10 +36,10 @@ struct ContentView: View {
                         Text("+").font(.title)
                     }.sheet(isPresented: $isShowEditView){
                         @State var name = ""
-                        @State var birthDay = Date()
-                        @State var event = ""
-                        let person = Person(name: name, birthDay: birthDay, event: event)
-                        EditView(person: person, insert: true, name: $name, birthDay: $birthDay, event: $event, isShowingEditView: $isShowEditView)
+                        @State var birthDay = ""
+                        @State var memo = ""
+                        let person = Person(name: "", birthDay: Date(), memo: "")
+                        EditView(person: person, insert: true, isShowingEditView: $isShowEditView)
                     }
                 }
             }.background(Color(UIColor.systemGray6))
