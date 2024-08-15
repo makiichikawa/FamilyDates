@@ -79,6 +79,7 @@ struct EditView: View {
 
                 Button("OK") {
                     if (insert) {
+                        isShowingEditView = false
                         context.insert(person)
                     } else {
                         isShowingEditView = false
