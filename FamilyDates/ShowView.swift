@@ -24,6 +24,7 @@ struct ShowView: View {
 }
 
 struct CardView: View {
+    @Environment(\.modelContext) private var context
     @Bindable var person: Person
     @State var isShowEditView = false
     var body: some View {
@@ -59,7 +60,7 @@ struct CardView: View {
             
             HStack {
                 Button(action: {
-                    // Deletion action
+                    context.delete(person)
                 }) {
                     Text("削除")
                         .frame(maxWidth: .infinity)
