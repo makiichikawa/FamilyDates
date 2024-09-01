@@ -29,4 +29,20 @@ final class Person {
         let ageComponents = calendar.dateComponents([.year], from: birthday, to: now)
         return ageComponents.year!
     }
+
+    func getAnniversary() -> String {
+        let urlComponents = URLComponents(string:  "https://holidays-jp.github.io/api/v1/date.json")!
+        Task {
+            let (data, response) = try await URLSession.shared.data(from: urlComponents.url!)
+            if let httpResponse = response as? HTTPURLResponse,
+               httpResponse.statusCode == 200,
+//               let anniversaryJson = String(data: data, encoding: .utf8) {
+//                  print(anniversaryJson)
+//               }
+               let anniversaryJson = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                 print(anniversaryJson)
+               }
+        }
+        return ""
+    }
 }

@@ -36,5 +36,69 @@
             landmarkType = "37">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F7C92305-C440-417C-BAD1-DAC187052BE2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FamilyDates/Person.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "getAnniversary()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E4EBF114-68BD-4B55-80B8-415DB1288F95"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FamilyDates/Person.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "getAnniversary()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E4EBF114-68BD-4B55-80B8-415DB1288F95 - 8fe51d30147c3b9d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FamilyDates.Person.getAnniversary() -&gt; Swift.String"
+                  moduleName = "FamilyDates"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ichikawamaki/FamilyDates/FamilyDates/Person.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "648">
+               </Location>
+               <Location
+                  uuid = "E4EBF114-68BD-4B55-80B8-415DB1288F95 - 7a4a4a064cd7f182"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in FamilyDates.Person.getAnniversary() -&gt; Swift.String"
+                  moduleName = "FamilyDates"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ichikawamaki/FamilyDates/FamilyDates/Person.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "1028">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
